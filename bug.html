@@ -1,0 +1,7 @@
+This error occurs when using Tailwind's `@apply` directive with a CSS rule that contains a pseudo-element selector (like `::before` or `::after`).  The `@apply` directive is not able to properly process and apply these rules, leading to the styles not being applied correctly. For example:
+
+```html
+<div class="@apply after:content-['✨'] after:absolute after:top-0"></div>
+```
+
+This would not apply the `after` styles because `@apply` cannot handle pseudo-elements directly.
