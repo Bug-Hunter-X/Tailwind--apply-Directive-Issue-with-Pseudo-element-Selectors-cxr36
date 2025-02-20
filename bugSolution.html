@@ -1,0 +1,23 @@
+The solution is to avoid using `@apply` with pseudo-element selectors. Instead, apply the styles directly in the HTML, or use a utility-first approach:
+
+```html
+<div class="relative">
+  <span class="absolute top-0 content-['✨']"> </span>
+</div>
+```
+
+This applies the styles directly to the pseudo-element `::before` or `::after` without relying on the `@apply` directive and thus resolves the issue.  Alternatively, create a custom CSS class:
+
+```css
+.my-pseudo-element::after {
+  content: "✨";
+  position: absolute;
+  top: 0;
+}
+```
+
+Then you could use this in your HTML:
+
+```html
+<div class="my-pseudo-element"></div>
+```
